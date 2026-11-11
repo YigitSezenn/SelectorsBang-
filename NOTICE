@@ -1,0 +1,5 @@
+The file lib/injected-script.js contains Playwright's injected script from
+playwright-core 1.65.0 (the same script playwright codegen uses).
+
+Playwright is copyright Microsoft Corporation and licensed under the Apache License, Version 2.0.
+http://www.apache.org/licenses/LICENSE-2.0

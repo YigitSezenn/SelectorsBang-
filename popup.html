@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <title>SelectorsBang</title>
+  <style>
+    :root { color-scheme: dark; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      min-width: 280px;
+      background:
+        radial-gradient(120% 40% at 100% 0%, rgba(124, 58, 237, 0.28), transparent 46%),
+        #16141f;
+      color: #f4f1fb;
+      font: 13px/1.45 ui-sans-serif, system-ui, sans-serif;
+    }
+    main {
+      box-sizing: border-box;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 16px 16px 14px;
+    }
+    header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin: 0 0 12px; }
+    .brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+    .brand img { width: 32px; height: 32px; border-radius: 8px; flex: none; }
+    h1 { font-size: 15px; font-weight: 750; letter-spacing: -0.02em; margin: 0; }
+    .sub { margin: 1px 0 0; color: #b7adc9; font-size: 11px; }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin: 4px 0 0;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      color: #c4b5d4;
+      font-size: 12px;
+      font-weight: 700;
+      flex: none;
+    }
+    .pill::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+    .pill.on { background: rgba(34, 197, 94, 0.16); color: #86efac; }
+    .dock { margin: 0 0 10px; color: #8f84a8; font-size: 12px; }
+    .hint { margin: 0 0 10px; color: #b7adc9; }
+    .locator-note { margin: 0 0 8px; color: #fcd34d; }
+    pre {
+      margin: 0 0 8px;
+      padding: 12px;
+      min-height: 96px;
+      flex: 1;
+      background: #0e0c14;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      white-space: pre;
+      word-break: normal;
+      overflow-wrap: normal;
+      overflow: auto;
+      font: 12px/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      user-select: text;
+    }
+    .status { margin: 0 0 10px; min-height: 1.2em; color: #b7adc9; }
+    .status.ok { color: #86efac; }
+    .status.err { color: #fcd34d; }
+    .row { display: flex; align-items: center; gap: 8px; }
+    button {
+      appearance: none;
+      border: 0;
+      border-radius: 8px;
+      padding: 8px 12px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      background: #7c3aed;
+      color: white;
+    }
+    button.text { background: transparent; color: #c4b5fd; font-weight: 600; padding-inline: 8px; }
+    button:focus-visible { outline: 2px solid #c4b5fd; outline-offset: 2px; }
+    button:disabled { opacity: 0.45; cursor: default; }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="brand">
+        <img src="icons/icon32.png" alt="">
+        <div>
+          <h1>SelectorsBang</h1>
+          <p class="sub">Playwright C#</p>
+        </div>
+      </div>
+      <p class="pill off" id="pill">Kapalı</p>
+    </header>
+    <p class="dock">Tarayıcının sağında kalır. Sayfaya tıklayınca kapanmaz.</p>
+    <p class="hint" id="hint">Açmak için buraya basın</p>
+    <p class="locator-note" id="locator-note" hidden></p>
+    <pre id="locator">Henüz bir öğe seçilmedi.</pre>
+    <p class="status" id="status"></p>
+    <div class="row">
+      <button id="copy" type="button" disabled>Kopyala</button>
+      <button id="toggle" type="button" class="text">Seçim modunu aç</button>
+    </div>
+  </main>
+  <script src="lib/copy-feedback.js"></script>
+  <script src="lib/popup-view.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
